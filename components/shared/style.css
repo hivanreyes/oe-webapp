@@ -1,0 +1,89 @@
+.item {
+    margin: 10px;
+}
+
+.main-grid{
+    padding: 15em 15em !important;
+}
+
+.drop-box {
+     width: 80% !important;
+}
+
+.ui.image>.ribbon.txt {
+    color: black !important;
+}
+
+.txt {
+    color: black !important;
+}
+
+.feed {
+    margin: 1em;
+}
+
+.crt-pan {
+    height: 35vw;
+    overflow-y: scroll;
+}
+
+.crt-tab {
+    padding: 3em;
+    height: 80%;
+}
+
+.crt-btn {
+    margin-right: 3em !important;
+}
+
+.lyt-crd {
+    width: 31% !important;
+    margin: 1em !important;
+    height: 15vw !important;
+}
+
+.crt-ele {
+    margin: 1rem 1rem !important;
+}
+
+.crt-ele-txt {
+    width: 80vw !important
+}
+
+.crt-ele-txt-ara {
+    height: 10vw
+}
+
+.crt-ele-upd {
+    margin-left: 40vw !important;
+}
+
+.crt-tab>.menu>a{
+    cursor: initial !important;
+}
+
+
+.crt-tab>.menu>a:hover{
+   background-color: white !important;
+}
+
+.crt-tab>.menu>a.active:hover{
+    background-color: rgba(0,0,0,.05) !important;
+ }
+
+.flt-rgt {
+    float: right !important;
+}
+
+
+.dis-cntnt {
+    padding: 2em
+}
+
+.dis-ele {
+    margin: 1em !important
+}
+
+.dis-ele-txt {
+    font-weight: bold
+}

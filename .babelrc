@@ -1,0 +1,20 @@
+{
+  "presets": [
+    "next/babel",
+    "env",
+    "react",
+    "stage-0"
+  ],
+  "env": {
+    "development": {
+    },
+    "test": {
+      "presets": [
+        [ "env", { "modules": "commonjs" } ]
+      ],
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "production": {
+    }
+  }
+}

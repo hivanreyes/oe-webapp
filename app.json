@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "oe-webapp",
+      "script": "server/index.js",
+      "args": "--port 8080",
+      "instances": "1",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
