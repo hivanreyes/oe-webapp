@@ -134,6 +134,14 @@
     "@natgeo/styleguide" "^1.0.0"
     velocity-animate "^1.5.0"
 
+"@natgeo/modules-global-footer@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.npmjs.org/@natgeo/modules-global-footer/-/modules-global-footer-5.0.1.tgz#c197b8b753496196a72156e04c3a87a434fc00f3"
+  dependencies:
+    axios "^0.18.0"
+    classnames "^2.2.5"
+    jsx-render "^0.6.3"
+
 "@natgeo/modules-global-nav@6.0.2-chip.2":
   version "6.0.2-chip.2"
   resolved "https://registry.yarnpkg.com/@natgeo/modules-global-nav/-/modules-global-nav-6.0.2-chip.2.tgz#3604fe17e433c9031d84158b86b6353240f4be9b"
@@ -1554,7 +1562,7 @@ boxen@^1.2.1:
 
 brace-expansion@^1.1.7:
   version "1.1.11"
-  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
+  resolved "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
   dependencies:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
@@ -3116,7 +3124,7 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
 
 extend@~3.0.1:
   version "3.0.1"
-  resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
+  resolved "https://registry.npmjs.org/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
 
 external-editor@^2.0.4:
   version "2.2.0"
@@ -3849,6 +3857,10 @@ inquirer@^3.0.6:
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
+
+install@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.npmjs.org/install/-/install-0.11.0.tgz#e539d3c7db572ab5081d3780de20796dd3cc842e"
 
 interpret@^1.0.0:
   version "1.1.0"
@@ -4647,6 +4659,10 @@ jsx-ast-utils@^2.0.0, jsx-ast-utils@^2.0.1:
   dependencies:
     array-includes "^3.0.3"
 
+jsx-render@^0.6.3:
+  version "0.6.6"
+  resolved "https://registry.npmjs.org/jsx-render/-/jsx-render-0.6.6.tgz#88edc4e0c070578726e44bb4ade072bae5b14647"
+
 junk@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/junk/-/junk-1.0.3.tgz#87be63488649cbdca6f53ab39bec9ccd2347f592"
@@ -4896,7 +4912,7 @@ merge-descriptors@1.0.1:
 
 merge-stream@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-1.0.1.tgz#4041202d508a342ba00174008df0c251b8c135e1"
+  resolved "https://registry.npmjs.org/merge-stream/-/merge-stream-1.0.1.tgz#4041202d508a342ba00174008df0c251b8c135e1"
   dependencies:
     readable-stream "^2.0.1"
 
@@ -6624,7 +6640,7 @@ resolve@1.5.0:
 
 resolve@^1.5.0, resolve@^1.6.0:
   version "1.7.1"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.7.1.tgz#aadd656374fd298aee895bc026b8297418677fd3"
+  resolved "https://registry.npmjs.org/resolve/-/resolve-1.7.1.tgz#aadd656374fd298aee895bc026b8297418677fd3"
   dependencies:
     path-parse "^1.0.5"
 

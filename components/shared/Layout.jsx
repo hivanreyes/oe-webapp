@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container } from 'semantic-ui-react'
 import NavBarWrapper from './NavBarWrapper'
+import FooterWrapper from './FooterWrapper'
 import Head from 'next/head'
 import getConfig from 'next/config'
 
@@ -28,13 +29,13 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Head>
-        <link rel="stylesheet" href="/_next/static/style.css" />
         <link rel="stylesheet" href="/static/css/styles.min.css" />
       </Head>
       <NavBarWrapper {...PROPS} />
       <Container>
         { children }
       </Container>
+      <FooterWrapper wrapperId={'algun-id'}/>
     </div>
   )
 }
