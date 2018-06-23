@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import dynamic from 'next/dynamic'
 import classnames from 'classnames'
-import '../../node_modules/@natgeo/modules-global-footer/lib/GlobalFooter.css'
-import '@natgeo/modules-global-footer/lib/GlobalFooter.css';
 
 
 const FooterPlaceholder = () => (
