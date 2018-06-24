@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from '../components/shared/Header'
 import Layout from '../components/shared/Layout'
+import Carousel from '../components/home/carousel'
 import {
   Container,
   Image,
@@ -22,7 +23,7 @@ class Home extends Component {
       <Layout>
         <Header username={this.props.username} />
         <Container className="image-container">
-          Aqui nomas
+          <Carousel />
         </Container>
       </Layout>
     )

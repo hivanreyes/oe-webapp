@@ -1,15 +1,11 @@
-const withCss = require('@zeit/next-css')
+const withSass = require('@zeit/next-sass')
+const webpack = require('webpack') // eslint-disable-line import/no-extraneous-dependencies
 
-module.exports = withCss({
+module.exports = withSass({
+  cssModules: true,
+
   serverRuntimeConfig: { // Only available on server side
 
-  },
-  publicRuntimeConfig: { // Available on both server and client
-    FILE_STACK_API_KEY: process.env.FILE_STACK_API_KEY,
-    GRAPHQL_URI: process.env.GRAPHQL_URI,
-    GRAPHQL_API_KEY: process.env.GRAPHQL_API_KEY,
-    COMMUNITY_ID: process.env.COMMUNITY_ID,
-    NAVBAR_ENDPOINT: process.env.NAVBAR_ENDPOINT,
   },
 
   webpack (config) {

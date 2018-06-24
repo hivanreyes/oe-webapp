@@ -1,0 +1,40 @@
+.carouselContainer{
+  height: 600px;
+
+  .container{
+    position: relative;
+    text-align: center;
+
+    .image {
+      height: 600px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+
+      .title {
+        font-family: GeographBrand-Medium;
+        font-size: 54px;
+        color: #FFFFFF;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+
+      .subtitle {
+        font-family: GeographEdit-Regular;
+        font-size: 24px;
+        color: #FFFFFF;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
