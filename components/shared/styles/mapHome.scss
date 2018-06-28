@@ -1,0 +1,41 @@
+.container {
+  height: 630px;
+
+  .policy {
+    text-align: right;
+    margin: 15px;
+    font-family: GeographEdit-Regular;
+    font-size: 12px;
+  }
+}
+
+.marker {
+  width: 30;
+  height: 30;
+  border-radius: 50%;
+  background-color: #E0E0E0;
+  display: flex;
+  border: 2px solid #C9C9C9;
+}
+
+.markerIcon {
+  font-size: 25px;
+}
+
+.orange {
+  color: #eacf2a;
+}
+
+.green {
+  color: #97be43;
+}
+
+.blue {
+  color: #28aee5;
+}
+
+.clusterIcon {
+  color: #368A61;
+  font-size: 30px;
+  cursor: pointer;
+}
