@@ -22,21 +22,21 @@ const getButtonClassNames = ({ buttonType, size }) =>
     [style.small]: size === SIZE.SMALL,
   })
 
-const WrappedButton = props => {
+const Button = props => {
   const { label } = props
   const buttonClassNames = getButtonClassNames(props)
   return <button className={buttonClassNames}>{label}</button>
 }
 
-WrappedButton.defaultProps = {
+Button.defaultProps = {
   buttonType: TYPE.PRIMARY,
   size: SIZE.SMALL,
 }
 
-WrappedButton.propTypes = {
+Button.propTypes = {
   label: PropTypes.string.isRequired,
   buttonType: PropTypes.string,
   size: PropTypes.string,
 }
 
-export default WrappedButton
+export default Button
