@@ -1,23 +1,13 @@
 import React, { Component } from 'react'
-import Header from '../components/shared/Header'
-import Layout from '../components/shared/Layout'
-import Carousel from '../components/home/carousel'
-import {
-  Container,
-  Image,
-  Divider,
-  Feed,
-} from 'semantic-ui-react'
 import getConfig from 'next/config'
+import { Container, Image, Divider, Feed, } from 'semantic-ui-react'
+import Layout from '../components/shared/Layout.jsx'
+import Carousel from '../components/home/carousel.jsx'
+import Header from '../components/shared/Header.jsx'
 
 const { publicRuntimeConfig } = getConfig()
 
 class Home extends Component {
-
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <Layout>
@@ -27,7 +17,6 @@ class Home extends Component {
         </Container>
       </Layout>
     )
-
   }
 }
 

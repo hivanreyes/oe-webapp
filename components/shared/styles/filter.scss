@@ -1,0 +1,50 @@
+.containerFilter{
+  margin: auto;
+  max-width: 940px;
+
+  .filter{
+    margin: 15px 0;
+
+    .titleFilter{
+      float: left;
+
+      .title{
+        font-family: GeographBrand-Bold;
+        font-size: 20px;
+        color: #000000;
+        letter-spacing: 0;
+      }
+
+      .link{
+        margin-left: 15px;
+        font-family: GeographBrand-Bold;
+        font-size: 14px;
+        color: #000000;
+        letter-spacing: 0;
+        border-bottom: 2px solid #fc0;
+      }
+    }
+
+    .tagsFilter{
+      float: right;
+      margin-top: 5px;
+
+      span{
+        font-family: GeographEdit-Medium;
+        font-size: 15px;
+        color: #000000;
+        letter-spacing: 0.44px;
+        line-height: 24px;
+        padding-left: 50px;
+
+        svg {
+          padding-right: 5px;
+        }
+      }
+
+      .active {
+        color: #fc0;
+      }
+    }
+  }
+}

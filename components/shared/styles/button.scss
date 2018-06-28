@@ -1,0 +1,26 @@
+.button {
+  width: auto;
+  text-transform: uppercase;
+  font-family: GeographBrand-Bold, serif;
+  color: black;
+  font-size: 12px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  border-color: transparent;
+  letter-spacing: 0.2em;
+}
+
+.primary {
+  background-color: #FFCC00;
+}
+
+.big {
+  height: 50px;
+  font-size: 16px;
+}
+
+.small {
+  height: 35px;
+  font-size: 12px;
+}

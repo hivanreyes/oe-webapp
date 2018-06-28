@@ -4,9 +4,10 @@ const next = require('next')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+const host = process.env.HOST || 'localhost'
 const port = process.env.PORT || 3000;
 
-/* eslint no-console: 0*/
+/* eslint no-console: 0 */
 app.prepare()
   .then(() => {
     const server = express()
@@ -27,7 +28,7 @@ app.prepare()
 
     server.listen(port, (err) => {
       if (err) throw err
-      console.log(`> Ready on http://localhost:${port}`)
+      console.log(`> Ready on http://${host}:${port}`)
     })
   })
   .catch((ex) => {

@@ -1,0 +1,17 @@
+.sliderObservations {
+  max-width: 940px;
+  margin: auto;
+  position: relative;
+
+  .titleObservation{
+    margin: 60px 0 50px;
+    font-family: GeographBrand-Bold;
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0;
+  }
+
+  .slider {
+    height: 400px;
+  }
+}
