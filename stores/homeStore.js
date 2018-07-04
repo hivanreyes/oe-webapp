@@ -8,11 +8,18 @@ let store = null
 let isServer = typeof window === 'undefined'
 
 class HomeStore {
-  @observable geoJson = []
+  constructor() {
+    this.popular = []
+  }
 
   @action async fetchJson() {
     const json = await Api.home.getGeoJson();
     this.setJsons(json)
+  }
+
+  @action fetchPopular = async () => {
+    const popularExp = await Api.home.getPopularExpeditions();
+    return popularExp.data
   }
 
   @action setJsons = newGeoJson => {
