@@ -21,6 +21,10 @@
     "clean": "yarn run clean:modules && rm -rf static/css"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0",
+    "@fortawesome/react-fontawesome": "^0.1.0",
     "@natgeo/componentry": "^1.2.10",
     "@natgeo/modules-global-footer": "^5.0.1",
     "@natgeo/modules-global-nav": "6.0.2-chip.2",

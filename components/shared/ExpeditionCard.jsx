@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TruncateMarkup from 'react-truncate-markup'
-import Button from './Button.jsx'
+import Button from './Button'
 import style from './styles/expeditionCard.scss'
 
 const ExpeditionCard = ({ data }) => {
@@ -43,7 +43,7 @@ const ExpeditionCard = ({ data }) => {
   )
 }
 
-Button.propTypes = {
+ExpeditionCard.propTypes = {
   data: PropTypes.shape({
     name: PropTypes.string.isRequired,
     banner: PropTypes.string.isRequired,

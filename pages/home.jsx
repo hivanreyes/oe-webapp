@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import getConfig from 'next/config'
-import { Container, Image, Divider, Feed, } from 'semantic-ui-react'
-import Layout from '../components/shared/Layout.jsx'
-import Carousel from '../components/home/carousel.jsx'
-import Header from '../components/shared/Header.jsx'
+import { Container } from 'semantic-ui-react'
+import Layout from '../components/shared/Layout'
+import Carousel from '../components/home/carousel'
+import Header from '../components/shared/Header'
 
 const { publicRuntimeConfig } = getConfig()
 
