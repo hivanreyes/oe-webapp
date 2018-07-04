@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Slider from 'react-slick';
+import React, { Component } from 'react'
+import Slider from 'react-slick'
 
-import style from './carousel.scss';
+import style from '../../styles/carousel.scss'
 
 const settings = {
   dots: true,

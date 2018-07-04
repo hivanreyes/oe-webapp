@@ -1,0 +1,33 @@
+.sliderExpeditions {
+  max-width: 940px;
+  margin: auto;
+  position: relative;
+  clear: both;
+  padding-top: 30px;
+
+  .slider {
+    height: 520px;
+  }
+}
+
+:global(.slick-prev:before) {
+  content: '\2039';
+  font-size: 70px;
+  color: black;
+  margin-left: -85px;
+}
+
+:global(.slick-next:before) {
+  content: '\203A';
+  font-size: 70px;
+  color: black;
+  margin-right: -85px;
+}
+
+:global(.slick-prev) {
+  top: 39%;
+}
+
+:global(.slick-next) {
+  top: 39%;
+}
