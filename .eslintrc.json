@@ -1,5 +1,11 @@
 {
-  "extends": ["airbnb/base", "prettier", "plugin:react/recommended"],
+  "extends": [
+    "airbnb/base",
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:import/react",
+    "plugin:import/recommended"
+  ],
   "env": {
     "node": true
   },
@@ -46,5 +52,15 @@
     "SyntheticWheelEvent": true,
     "SyntheticTouchEvent": true,
     "SyntheticTransitionEvent": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
   }
 }
