@@ -43,7 +43,7 @@ const ExpeditionCard = ({ data }) => {
   )
 }
 
-Button.propTypes = {
+ExpeditionCard.propTypes = {
   data: PropTypes.shape({
     name: PropTypes.string.isRequired,
     banner: PropTypes.string.isRequired,
