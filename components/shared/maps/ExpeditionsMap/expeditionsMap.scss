@@ -1,0 +1,9 @@
+.expeditionsMap {
+  background-size: cover;
+  width: 100%;
+  height: 520px;
+
+  @media screen and (max-width: 769px) {
+    height: 250px;
+  }
+}

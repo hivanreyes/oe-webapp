@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import getConfig from 'next/config'
-import Layout from '../components/shared/Layout.jsx'
-import HomeContainer from '../components/home/homeContainer.jsx'
-import Header from '../components/shared/Header.jsx'
+import Layout from '../components/shared/Layout'
+import HomeContainer from '../components/home/homeContainer'
+import Header from '../components/shared/Header'
 import { Provider } from 'mobx-react'
 import { initHomeStore } from '../stores'
 

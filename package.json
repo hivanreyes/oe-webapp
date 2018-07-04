@@ -96,6 +96,7 @@
     "set-cookie": "^0.0.4",
     "slick-carousel": "^1.8.1",
     "stickyfilljs": "2.0.3",
+    "style-loader": "^0.21.0",
     "url-loader": "^1.0.1"
   },
   "devDependencies": {
