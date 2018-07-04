@@ -1,21 +1,28 @@
 import React, { Component } from 'react'
 import getConfig from 'next/config'
-import { Container } from 'semantic-ui-react'
-import Layout from '../components/shared/Layout'
-import Carousel from '../components/home/carousel'
-import Header from '../components/shared/Header'
+import Layout from '../components/shared/Layout.jsx'
+import HomeContainer from '../components/home/homeContainer.jsx'
+import Header from '../components/shared/Header.jsx'
+import { Provider } from 'mobx-react'
+import { initHomeStore } from '../stores'
 
 const { publicRuntimeConfig } = getConfig()
 
+
 class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.homeStore = initHomeStore()
+  }
+
   render() {
     return (
-      <Layout>
-        <Header username={this.props.username} />
-        <Container className="image-container">
-          <Carousel />
-        </Container>
-      </Layout>
+      <Provider homeStore={this.homeStore}>
+        <Layout>
+          <Header />
+          <HomeContainer />
+        </Layout>
+      </Provider>
     )
   }
 }
