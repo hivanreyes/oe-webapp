@@ -16,8 +16,9 @@ class HomeStore {
   }
 
   @action setJsons = newGeoJson => {
+    const { data } = newGeoJson
     this.geoJson.splice(0)
-    this.geoJson.push(newGeoJson)
+    this.geoJson.push(data)
   }
 }
 
