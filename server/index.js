@@ -1,11 +1,14 @@
 const express = require('express')
 const next = require('next')
+const mobxReact = require('mobx-react')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const host = process.env.HOST || 'localhost'
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000
+
+mobxReact.useStaticRendering(true)
 
 /* eslint no-console: 0 */
 app.prepare()
