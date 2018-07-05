@@ -63,6 +63,7 @@
     "@natgeo/web-components-react-where-to-watch": "^1.0.2-0",
     "@natgeo/web-components-vanilla-freewheel-ad-manager": "^1.0.3-0",
     "@natgeo/web-components-vanilla-utils": "^1.0.3-0",
+    "@turf/turf": "^5.1.6",
     "@zeit/next-sass": "^0.2.0",
     "axios": "^0.16.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -98,6 +99,7 @@
     "slick-carousel": "^1.8.1",
     "stickyfilljs": "2.0.3",
     "style-loader": "^0.21.0",
+    "supercluster": "^4.0.1",
     "url-loader": "^1.0.1"
   },
   "devDependencies": {

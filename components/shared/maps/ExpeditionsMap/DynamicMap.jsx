@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import turf from '@turf/turf'
+import supercluster from 'supercluster'
 import DisclaimerControl from '../plugins/DisclaimerControl'
 
 const {
