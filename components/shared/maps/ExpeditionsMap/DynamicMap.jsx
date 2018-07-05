@@ -2,22 +2,31 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import style from './expeditionsMap.scss'
+import DisclaimerControl from '../plugins/DisclaimerControl'
 
 const {
   AttributionControl,
   GeolocateControl,
+  LngLat,
   Map,
   NavigationControl,
 } = mapboxgl
 
-mapboxgl.accessToken =
-  'pk.eyJ1IjoiamVsZGVyIiwiYSI6ImNqY2psMDU4ZzB5aHUyd25zajlqeHNhdGEifQ.SgWQ-I8Xg7xbiI6AYtjTTg' // config.get('mapboxgl.accessToken')
-const mapStyle = 'jelder/cjiuzcajb6to92smm7vz0ucfk' // config.get('mapboxgl.style') || 'mapbox/streets-v9'
-
 class DynamicMap extends React.Component {
+  constructor(props) {
+    super(props)
+    mapboxgl.accessToken = props.accessToken
+  }
+
   componentDidMount() {
-    const { controls, scrollZoom, ...mapProps } = this.props
+    const {
+      controls,
+      center,
+      scrollZoom,
+      mapStyle,
+      zoom,
+      ...mapProps
+    } = this.props
     const map = new Map({
       container: this.mapContainer,
       style: `mapbox://styles/${mapStyle}`,
@@ -26,48 +35,80 @@ class DynamicMap extends React.Component {
     })
 
     if (!scrollZoom) {
-      map.scrollZoom.disable();
+      map.scrollZoom.disable()
     }
-    map.addControl(new AttributionControl({ compact: controls.compactAttribution }))
-    if (controls.geolocate) {
-      map.addControl(new GeolocateControl())
-    }
+    const attrControl = new AttributionControl({
+      compact: controls.compactAttribution,
+    })
+    map.addControl(attrControl)
     if (controls.navigation) {
       map.addControl(new NavigationControl())
     }
-    console.error(style.expeditionsMap)
+    if (controls.geolocate) {
+      map.addControl(new GeolocateControl())
+    }
+    if (controls.disclaimer) {
+      const disclaimer = new DisclaimerControl({
+        position: 'bottom-center',
+        disclaimerText: '© NGP, Content may not reflect ',
+        link: {
+          href:
+            'https://www.nationalgeographic.com/maps/cartographic-policies/?beta=true',
+          text: "National Geographic's current map policy",
+        },
+      })
+      map.addControl(disclaimer)
+    }
+
+    function onLoad() {
+      map.setCenter(new LngLat(center[0], center[1]), undefined)
+      map.setZoom(zoom)
+    }
+
+    map.on('load', onLoad)
   }
 
   render() {
     return (
-        <div
-          className={style.expeditionsMap}
-          ref={el => {
-            this.mapContainer = el
-          }}
-        />
+      <div
+        style={{
+          backgroundSize: 'cover',
+          width: '100%',
+          height: '520px',
+        }}
+        ref={el => {
+          this.mapContainer = el
+        }}
+      />
     )
   }
 }
 
 DynamicMap.propTypes = {
-  scrollZoom: PropTypes.bool,
+  accessToken: PropTypes.string.isRequired,
+  center: PropTypes.arrayOf(PropTypes.number),
   controls: PropTypes.shape({
     compactAttribution: PropTypes.bool,
     disclaimer: PropTypes.bool,
     geolocate: PropTypes.bool,
     navigation: PropTypes.bool,
   }),
+  scrollZoom: PropTypes.bool,
+  mapStyle: PropTypes.string.isRequired,
+  zoom: PropTypes.number,
 }
 
 DynamicMap.defaultProps = {
-  scrollZoom: false,
+  center: [0, 0],
   controls: {
-    attribution: false,
+    compactAttribution: true,
     disclaimer: true,
     geolocate: true,
     navigation: true,
   },
+  scrollZoom: false,
+  mapStyle: 'mapbox/v9-streets',
+  zoom: 0,
 }
 
 export default DynamicMap
