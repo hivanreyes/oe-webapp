@@ -30,4 +30,4 @@ yarn-error.log*
 # Configuration files
 config/*
 !config/example.json
-components/shared/maps/Config.js
+**/[Cc]onfig*
