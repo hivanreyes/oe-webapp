@@ -94,6 +94,7 @@
     "url-loader": "^1.0.1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.1.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.3",
     "babel-plugin-transform-class-properties": "^6.24.1",

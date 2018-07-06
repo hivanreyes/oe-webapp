@@ -92,6 +92,10 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@fortawesome/fontawesome-free@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-5.1.0.tgz#f35f5ba91366b7a58b0b6a4f22ff0907fe002219"
+
 "@natgeo/componentry@^1.2.10":
   version "1.2.10"
   resolved "https://registry.yarnpkg.com/@natgeo/componentry/-/componentry-1.2.10.tgz#7e94ba0ab8c18b2025e598c08061fb3b148b38d2"
