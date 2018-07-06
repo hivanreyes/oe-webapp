@@ -10,6 +10,7 @@ import ExpeditionTooltip from '../plugins/ExpeditionTooltip'
 const {
   AttributionControl,
   GeolocateControl,
+  LngLatBounds,
   Map,
   NavigationControl,
 } = mapboxgl
@@ -42,14 +43,14 @@ class DynamicMap extends Component {
     const onLoad = () => {
       this.addMapSources()
       this.addMapLayers()
+      this.map.on('click', this.onMouseClick.bind(this))
+      this.map.on('mousemove', this.onMouseMove.bind(this))
       this.tooltip.attachTo(this.map)
     }
 
     this.map.on('load', onLoad)
     this.previousClusterId = undefined
     this.clusterId = undefined
-
-    this.map.on('mousemove', this.onMouseMove.bind(this))
   }
 
   render() {
@@ -65,6 +66,25 @@ class DynamicMap extends Component {
         }}
       />
     )
+  }
+
+  onMouseClick(event) {
+    const clusterFeatures = this.map.queryRenderedFeatures(event.point, {
+      layers: ['clusters'],
+    })
+    if (clusterFeatures.length) {
+      const zoom = Math.floor(Number(this.map.getZoom()))
+      const clusterId = clusterFeatures[0].properties.cluster_id
+      const allFeatures = this.cluster.getLeaves(clusterId, zoom, Infinity)
+      const bounds = new LngLatBounds()
+      allFeatures.forEach(feature => {
+        bounds.extend(feature.geometry.coordinates)
+      })
+      const screenWidth =
+        // eslint-disable-next-line no-undef
+        window.innerWidth > 0 ? window.innerWidth : window.screen.width
+      this.map.fitBounds(bounds, { padding: screenWidth / 10 })
+    }
   }
 
   onMouseMove(event) {
@@ -95,17 +115,15 @@ class DynamicMap extends Component {
     // Lookup the hovered cluster features underlying data points
     // This operation is due that mapboxgl does not encode zoom
     // into the cluster id.
-    this.clusterId = (feat.properties.cluster_id << 5) + (zoom + 1)
+    this.clusterId = feat.properties.cluster_id
     if (this.clusterId === this.previousClusterId) {
       return
     }
 
-    const allFeatures = this.cluster.getLeaves(this.clusterId, Infinity)
-
+    const allFeatures = this.cluster.getLeaves(this.clusterId, zoom, Infinity)
     // Generate the on hover polygon
     if (allFeatures.length > 1) {
       const polygon = convex(featureCollection(allFeatures))
-      console.log(polygon)
       this.map.getSource('polygon').setData(polygon)
     }
     this.previousClusterId = this.clusterId
@@ -288,7 +306,7 @@ DynamicMap.defaultProps = {
   clusterMaxZoom: 14,
   scrollZoom: false,
   mapStyle: 'mapbox/streets-v9',
-  zoom: 1,
+  zoom: 1.5,
 }
 
 export default DynamicMap
