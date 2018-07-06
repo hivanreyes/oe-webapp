@@ -1,55 +1,83 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import fontawesome from '@fortawesome/fontawesome'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import {
-  faGlobe,
-  faCloud,
-  faLeaf,
-  faAnchor,
-  faBuilding,
-  faHome,
-} from '@fortawesome/fontawesome-free-solid'
+import cn from 'classnames'
 import style from './styles/filter.scss'
 
-fontawesome.library.add(faGlobe, faCloud, faLeaf, faAnchor, faBuilding, faHome)
+const TAGS = {
+  ALL: 'all',
+  AIR: 'air',
+  LAND: 'land',
+  SEA: 'sea',
+  URBAN: 'urban',
+  BACKYARD: 'backyard',
+}
 
-const ExpeditionFilter = ({ title: something }) => (
-  <div className={style.containerFilter}>
-    <div className={style.filter}>
-      <div className={style.titleFilter}>
-        <span className={style.title}>{something}</span>
-        <span className={style.link}>Show All</span>
+class ExpeditionFilter extends Component {
+  constructor(props) {
+    super(props)
+    this.active = TAGS.ALL
+    this.onClickTag = this.filterClickTag.bind(this)
+  }
+
+  filterClickTag(tag) {
+    const { filterByTag } = this.props
+    this.active = tag
+    filterByTag(tag)
+  }
+
+  render() {
+    const { title } = this.props
+
+    return (
+      <div className={style.containerFilter}>
+        <div className={style.filter}>
+          <div className={style.titleFilter}>
+            <span className={style.title}>{title}</span>
+            <span className={style.link}>Show All</span>
+          </div>
+          <div className={style.tagsFilter}>
+            <span
+              onClick={() => this.onClickTag(TAGS.ALL)}
+              className={cn({[style.active]: this.active === TAGS.ALL})}
+            >
+              All
+            </span>
+            <span
+              onClick={() => this.onClickTag(TAGS.AIR)}
+              className={cn({[style.active]: this.active === TAGS.AIR})}
+            >
+              Air
+            </span>
+            <span
+              onClick={() => this.onClickTag(TAGS.LAND)}
+              className={cn({[style.active]: this.active === TAGS.LAND})}
+            >
+              Land
+            </span>
+            <span
+              onClick={() => this.onClickTag(TAGS.SEA)}
+              className={cn({[style.active]: this.active === TAGS.SEA})}
+            >
+              Sea
+            </span>
+            <span
+              onClick={() => this.onClickTag(TAGS.URBAN)}
+              className={cn({[style.active]: this.active === TAGS.URBAN})}
+            >
+              Urban
+            </span>
+            <span
+              onClick={() => this.onClickTag(TAGS.BACKYARD)}
+              className={cn({[style.active]: this.active === TAGS.BACKYARD})}
+            >
+              Backyard
+            </span>
+          </div>
+        </div>
       </div>
-      <div className={style.tagsFilter}>
-        <span className={style.active}>
-          <FontAwesomeIcon icon="globe" />
-          All
-        </span>
-        <span>
-          <FontAwesomeIcon icon="cloud" />
-          Air
-        </span>
-        <span>
-          <FontAwesomeIcon icon="leaf" />
-          Land
-        </span>
-        <span>
-          <FontAwesomeIcon icon="anchor" />
-          Sea
-        </span>
-        <span>
-          <FontAwesomeIcon icon="building" />
-          Urban
-        </span>
-        <span>
-          <FontAwesomeIcon icon="home" />
-          Backyard
-        </span>
-      </div>
-    </div>
-  </div>
-)
+    )
+  }
+}
 
 ExpeditionFilter.propTypes = {
   title: PropTypes.string.isRequired,
