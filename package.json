@@ -29,7 +29,6 @@
     ]
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "@natgeo/componentry": "^1.2.10",
     "@natgeo/modules-global-footer": "^5.0.1",
     "@natgeo/modules-global-nav": "6.0.2-chip.2",

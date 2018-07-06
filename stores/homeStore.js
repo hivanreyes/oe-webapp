@@ -38,28 +38,23 @@ class HomeStore {
   }
 
   @computed get popularAir() {
-    let airFiltered = this.filterbyTag('air')
-    return airFiltered
+    return this.filterbyTag('air')
   }
 
   @computed get popularLand() {
-    let airFiltered = this.filterbyTag('land')
-    return airFiltered
+    return this.filterbyTag('land')
   }
 
   @computed get popularSea() {
-    let airFiltered = this.filterbyTag('sea')
-    return airFiltered
+    return this.filterbyTag('sea')
   }
 
   @computed get popularUrban() {
-    let airFiltered = this.filterbyTag('urban')
-    return airFiltered
+    return this.filterbyTag('urban')
   }
 
   @computed get popularBackyard() {
-    let airFiltered = this.filterbyTag('backyard')
-    return airFiltered
+    return this.filterbyTag('backyard')
   }
 
   filterbyTag(tag) {
