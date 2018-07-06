@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle,no-undef */
+/* eslint-disable no-underscore-dangle */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import registerControlPosition from './RegisterControl'
@@ -29,6 +29,7 @@ class DisclaimerControl {
         {'.'}
       </div>
     )
+    // eslint-disable-next-line no-undef
     this._container = document.createElement('div')
     this._container.className = 'mapboxgl-ctrl'
     ReactDOM.render(element, this._container)

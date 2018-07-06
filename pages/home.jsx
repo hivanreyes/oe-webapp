@@ -8,7 +8,6 @@ import { initHomeStore } from '../stores'
 
 const { publicRuntimeConfig } = getConfig()
 
-
 class Home extends Component {
   constructor(props) {
     super(props)
