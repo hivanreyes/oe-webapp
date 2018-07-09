@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import _ from 'lodash'
-import style from './styles/filter.scss'
+import style from '../../styles/filterTags.scss'
 import '../../node_modules/@fortawesome/fontawesome-free/js/all.js'
 import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss'
 
@@ -48,10 +48,10 @@ class ExpeditionFilter extends Component {
 
     return (
       <div className={style.containerFilter}>
-        <div className={style.filter}>
+
           <div className={style.titleFilter}>
-            <span className={style.title}>{title}</span>
-            <span className={style.link}>Show All</span>
+            <h1 className={style.title}>{title}</h1>
+            <a href="" className={style.link}>Show All</a>
           </div>
           <div className={style.tagsFilter}>
             <span
@@ -97,7 +97,6 @@ class ExpeditionFilter extends Component {
               Backyard
             </span>
           </div>
-        </div>
       </div>
     )
   }

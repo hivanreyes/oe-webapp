@@ -1,0 +1,86 @@
+.containerFilter{
+  margin: auto;
+  max-width: 940px;
+
+  .titleFilter {
+    float: left;
+
+    .title {
+      font-family: GeographBrand-Bold;
+      font-size: 20px;
+      color: #000000;
+      letter-spacing: 0;
+      float: left;
+    }
+
+    .link {
+      margin-left: 15px;
+      font-family: GeographBrand-Bold;
+      font-size: 14px;
+      color: #000000;
+      letter-spacing: 0;
+      border-bottom: 2px solid #fc0;
+      text-decoration: none;
+      margin-top: 18px;
+      float: left;
+    }
+  }
+
+  .tagsFilter{
+    float: right;
+    margin-top: 17px;
+
+    span{
+      font-family: GeographEdit-Medium;
+      font-size: 15px;
+      color: #000000;
+      letter-spacing: 0.44px;
+      line-height: 24px;
+      padding-left: 50px;
+      cursor: pointer;
+
+      svg {
+        padding-right: 5px;
+      }
+
+      .icon {
+        font-size: 18px;
+        padding-right: 5px;
+      }
+    }
+
+    .active {
+      color: #fc0;
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .containerFilter {
+    .titleFilter, .tagsFilter {
+      float: none;
+      text-align: center;
+
+      .title, .link {
+        float: none;
+        margin-left: 0; 
+      }
+    }
+
+    .tagsFilter {
+      span:first-child { 
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .containerFilter {
+    .tagsFilter {
+      span:not(:first-child) { 
+        padding-left: 25px;
+      }
+    }
+  }
+}

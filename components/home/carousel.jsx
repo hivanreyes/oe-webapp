@@ -11,6 +11,7 @@ const settings = {
   autoplay: true,
   speed: 500,
   pauseOnHover: false,
+  arrows: false,
   appendDots: dots => (
     <div
       style={{
