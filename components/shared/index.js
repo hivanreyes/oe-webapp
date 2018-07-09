@@ -1,5 +1,5 @@
 import ExpeditionCard from './ExpeditionCard'
-import ExpeditionFilter from './ExpeditionFilter'
+import ExpeditionFilter from './expeditionFilter'
 import CarouselWrapper from './carouselWrapper'
 
 export {

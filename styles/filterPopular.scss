@@ -1,5 +1,6 @@
 .cardSection {
   margin-top: 80px;
+  margin-bottom: 50px;
 }
 
 .sliderExpeditions {
@@ -11,5 +12,11 @@
 
   .slider {
     height: 520px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .cardSection {
+    margin-top: 50px;
   }
 }
