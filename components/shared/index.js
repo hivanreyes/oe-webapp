@@ -1,9 +1,9 @@
 import ExpeditionCard from './ExpeditionCard'
-import ExpeditionFilter from './expeditionFilter'
+import FilterTags from './filterTags'
 import CarouselWrapper from './carouselWrapper'
 
 export {
   ExpeditionCard,
-  ExpeditionFilter,
+  FilterTags,
   CarouselWrapper,
 }

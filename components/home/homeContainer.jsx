@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container } from 'semantic-ui-react'
 import Carousel from './carousel.jsx'
-import FilterPopular from './filterPopular.jsx'
+import PopularExpeditions from './popularExpeditions.jsx'
 import { inject, observer } from 'mobx-react'
 
 @inject('homeStore') @observer
@@ -16,7 +16,7 @@ class HomeContainer extends Component {
     return (
       <Container className="image-container">
         <Carousel />
-        <FilterPopular store={homeStore} />
+        <PopularExpeditions store={homeStore} />
       </Container>
     )
   }

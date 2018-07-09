@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
-import _ from 'lodash'
-import Slider from 'react-slick'
-import { ExpeditionCard } from '../shared'
-import { ExpeditionFilter } from '../shared'
-import { CarouselWrapper } from '../shared'
-import style from '../../styles/filterPopular.scss'
+import FilterCards from './filterCards.jsx'
 
 class FilterPopular extends Component {
   constructor(props) {
@@ -12,6 +7,7 @@ class FilterPopular extends Component {
     this.state = {
       popular: [],
     }
+    this.getByTag = this.getByTag.bind(this)
   }
 
   componentWillMount = async () =>{
@@ -48,32 +44,13 @@ class FilterPopular extends Component {
 
   render() {
     const { popular } = this.state
-    let sliders
 
-    if (popular.length) {
-      sliders = popular.map(item => (
-        <div key={_.uniqueId('slider-')}>
-          <ExpeditionCard
-            key={_.uniqueId('slider-')}
-            data={item} />
-        </div>
-      ))
-    }
-
-    return (
-      <div className={style.sliderExpeditions}>
-        <div>
-          <ExpeditionFilter
-            title={'Popular Expeditions'}
-            filterByTag={this.getByTag}
-          />
-        </div>
-        <div className={style.cardSection}>
-          <CarouselWrapper showSwipeAt={1200}>
-            {sliders}
-          </CarouselWrapper>
-        </div>
-      </div>
+    return(
+      <FilterCards
+        expeditions={popular}
+        actions={this.getByTag}
+        showAt={1200}
+      />
     )
   }
 }
