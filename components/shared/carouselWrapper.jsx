@@ -10,12 +10,11 @@ var SETTINGS = {
   initialSlide: 0,
   slidesToShow: 3,
   lazyLoad: true,
+  rows: 1,
   responsive: [
     {
       breakpoint: 1200,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
         arrows: false,
         dots: false
       }
