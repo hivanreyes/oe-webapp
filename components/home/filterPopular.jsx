@@ -3,31 +3,18 @@ import _ from 'lodash'
 import Slider from 'react-slick'
 import { ExpeditionCard } from '../shared'
 import { ExpeditionFilter } from '../shared'
-import style from '../../styles/sliderExpeditions.scss'
-import styleFilter from '../../styles/filterPopular.scss'
-
-const settings = {
-  dots: false,
-  infinite: false,
-  lazyLoad: true,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-}
+import { CarouselWrapper } from '../shared'
+import style from '../../styles/filterPopular.scss'
 
 class FilterPopular extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      popular: []
+      popular: [],
     }
-    this.getPopular = this.getPopularExpeditions.bind(this)
   }
 
-  componentWillMount(){
-    this.getPopular();
-  }
-
-  getPopularExpeditions = async () => {
+  componentWillMount = async () =>{
     const { store } = this.props
     const expeditions = await store.fetchPopular()
     this.setState({ popular: expeditions })
@@ -61,7 +48,7 @@ class FilterPopular extends Component {
 
   render() {
     const { popular } = this.state
-    let sliders = <div>No results</div>
+    let sliders
 
     if (popular.length) {
       sliders = popular.map(item => (
@@ -81,10 +68,10 @@ class FilterPopular extends Component {
             filterByTag={this.getByTag}
           />
         </div>
-        <div className={styleFilter.cardSection}>
-          <Slider {...settings} className={style.slider}>
+        <div className={style.cardSection}>
+          <CarouselWrapper>
             {sliders}
-          </Slider>
+          </CarouselWrapper>
         </div>
       </div>
     )
