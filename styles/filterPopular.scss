@@ -1,3 +1,15 @@
 .cardSection {
   margin-top: 80px;
 }
+
+.sliderExpeditions {
+  max-width: 940px;
+  margin: auto;
+  position: relative;
+  clear: both;
+  padding-top: 30px;
+
+  .slider {
+    height: 520px;
+  }
+}
