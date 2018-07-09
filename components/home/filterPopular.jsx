@@ -69,7 +69,7 @@ class FilterPopular extends Component {
           />
         </div>
         <div className={style.cardSection}>
-          <CarouselWrapper>
+          <CarouselWrapper showSwipeAt={1200}>
             {sliders}
           </CarouselWrapper>
         </div>
