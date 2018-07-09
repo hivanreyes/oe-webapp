@@ -1,4 +1,4 @@
-/*import React, { Component } from 'react'
+import React, { Component } from 'react'
 import FilterCards from './filterCards.jsx'
 
 class RecentExpeditions extends Component {
@@ -56,4 +56,4 @@ class RecentExpeditions extends Component {
   }
 }
 
-export default RecentExpeditions*/
+export default RecentExpeditions
