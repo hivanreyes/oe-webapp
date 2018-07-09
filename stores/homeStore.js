@@ -18,6 +18,7 @@ class HomeStore {
 
   constructor() {
     this.popular = []
+    this.recent = []
   }
 
   @action async fetchJson() {
@@ -57,8 +58,44 @@ class HomeStore {
     return this.filterbyTag('backyard')
   }
 
-  filterbyTag(tag) {
-    return this.popular.filter(exp => exp.tags.includes(tag))
+  @action fetchRecent = async () => {
+    const recentExp = await Api.home.getLatestExpeditions();
+    this.recent = recentExp.data
+    return recentExp.data
+  }
+
+  @computed get recentAll() {
+    return this.popular;
+  }
+
+  @computed get recentAir() {
+    return this.filterbyTag('air', 'recent')
+  }
+
+  @computed get recentLand() {
+    return this.filterbyTag('land', 'recent')
+  }
+
+  @computed get recentSea() {
+    return this.filterbyTag('sea', 'recent')
+  }
+
+  @computed get recentUrban() {
+    return this.filterbyTag('urban', 'recent')
+  }
+
+  @computed get recentBackyard() {
+    return this.filterbyTag('backyard', 'recent')
+  }
+
+  filterbyTag(tag, type= 'popular') {
+    if(type === 'popular') {
+      return this.popular.filter(exp => exp.tags.includes(tag))
+    }
+
+    if(type === 'recent') {
+      return this.recent.filter(exp => exp.tags.includes(tag))
+    }
   }
 
 }

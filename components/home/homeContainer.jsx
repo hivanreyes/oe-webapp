@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container } from 'semantic-ui-react'
 import Carousel from './carousel.jsx'
 import PopularExpeditions from './popularExpeditions.jsx'
+import RecentExpeditions from './recentExpeditions.jsx'
 import { inject, observer } from 'mobx-react'
 import ExpeditionsMap from '../shared/maps/ExpeditionsMap'
 import FeaturedExpedition from './FeaturedExpedition'
@@ -11,7 +12,7 @@ class HomeContainer extends Component {
   constructor(props) {
     super(props)
   }
-
+  
   render() {
     const { homeStore } = this.props
 
