@@ -1,0 +1,101 @@
+.homepageBlockContainer {
+  width: 100%;
+  background: #f7f7f7;
+}
+
+.featuredExpedition{
+  height: 475px;
+
+  .container{
+    position: relative;
+
+    .image {
+      height: 475px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .left {
+      position: absolute ;
+      top: 40%;
+      left: 1.75%;
+      width: 50%;
+
+      .metadata {
+        font-family: GeographEdit-Regular;
+        font-size: 0.75em;
+        color: #FFFFFF;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+
+      .title {
+        font-family: GeographEdit-Medium;
+        font-size: 36px;
+        color: #FFFFFF;
+        letter-spacing: 0.5px;
+        line-height: 44px;
+      }
+
+      .subtitle {
+        font-family: GeographEdit-Regular;
+        font-size: 16px;
+        color: #FFFFFF;
+        letter-spacing: 0.57px;
+        line-height: 23px;
+        line-height: 1.8em;
+        max-height: 115px;
+        margin-bottom: 20px;
+        margin-top: 0 !important;
+      }
+    }
+  }
+
+  height: 530px;
+  background-color: #ddd;
+  margin-top: 0px;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+
+  &:before {
+    content: " ";
+    width: 100%;
+    height: 530px;
+    position: absolute;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 77%, rgba(0, 0, 0, 0) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.4)), color-stop(77%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 77%, rgba(0, 0, 0, 0) 100%);
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 77%, rgba(0, 0, 0, 0) 100%);
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 77%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 77%, rgba(0, 0, 0, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66000000', endColorstr='#00000000',GradientType=0 );
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:visited {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .metadataGroup .metadataLine {
+    span {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .stageContainer {
+    padding-top: 40px;
+  }
+
+  .smallTitle {
+    font-size: 1.23076923em;
+  }
+}
+
