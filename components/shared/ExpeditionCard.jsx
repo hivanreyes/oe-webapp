@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TruncateMarkup from 'react-truncate-markup'
 import Button from './Button'
+import Lazy from './imageLazy'
 import style from './styles/expeditionCard.scss'
+import LazyLoad from 'react-lazyload'
 
 const ExpeditionCard = ({ data }) => {
   let postLabel = 'post'
@@ -10,7 +12,7 @@ const ExpeditionCard = ({ data }) => {
   const firstLocation = `${data.firstLocation} ${data.duration}`
   return (
     <div className={style.containerExpCard}>
-      <img className={style.headerImg} src={data.banner} alt={data.name} />
+      <Lazy image={data.banner} />
       <div className={style.detailsCard}>
         <div className={style.titleCard}>
           <TruncateMarkup lines={1}>

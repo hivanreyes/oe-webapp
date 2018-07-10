@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import _ from 'lodash'
 import { ExpeditionCard } from '../shared'
 import { FilterTags } from '../shared'
-import { CarouselWrapper } from '../shared'
+import { CarouselWrapp } from '../shared'
 import style from '../../styles/filterPopular.scss'
 
 const FilterCards = ({ expeditions, actions, showAt }) => {
@@ -27,9 +27,9 @@ const FilterCards = ({ expeditions, actions, showAt }) => {
         />
       </div>
       <div className={style.cardSection}>
-        <CarouselWrapper showSwipeAt={showAt}>
+        <CarouselWrapp>
           {sliders}
-        </CarouselWrapper>
+        </CarouselWrapp>
       </div>
     </div>
   )
