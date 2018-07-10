@@ -1,10 +1,14 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import Button, { TYPE, SIZE } from '../../components/shared/Button'
 
 describe('<Button />', () => {
   it('should shallow without errors', () => {
     const btn = shallow(<Button label={'Follow'} />)
+    expect(btn).toMatchSnapshot()
+  })
+  it('should mount without errors', () => {
+    const btn = mount(<Button label={'Follow'} />)
     expect(btn).toMatchSnapshot()
   })
   it('should render label as its child', () => {
