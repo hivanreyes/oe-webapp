@@ -6,9 +6,11 @@ import './_mapboxglTooltip.css'
 
 class ExpeditionTooltip {
   constructor(layerName, screenSizeBreakPoint, basePath = 'expedition') {
+    // See https://www.mapbox.com/mapbox-gl-js/api/#Popup
     this.popup = new mapboxgl.Popup({
       closeButton: true,
       closeOnClick: false,
+      anchor: 'top',
     })
     this.layer = layerName
     this.breakPoint = screenSizeBreakPoint
