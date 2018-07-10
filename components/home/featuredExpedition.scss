@@ -3,9 +3,8 @@
   background: #f7f7f7;
 }
 
-.featuredExpedition{
-  height: 475px;
-
+.featuredExpedition {
+  padding-bottom: -20px;
   .container{
     position: relative;
 
@@ -19,7 +18,7 @@
       position: absolute ;
       top: 40%;
       left: 1.75%;
-      width: 50%;
+      width: 65%;
 
       .metadata {
         font-family: GeographEdit-Regular;
@@ -53,10 +52,9 @@
   }
 
   height: 530px;
-  background-color: #ddd;
   margin-top: 0px;
   background-size: cover;
-  background-position: center;
+  background: #ddd center;
   color: #fff;
 
   &:before {
@@ -88,10 +86,6 @@
       color: #fff;
       text-decoration: none;
     }
-  }
-
-  .stageContainer {
-    padding-top: 40px;
   }
 
   .smallTitle {
