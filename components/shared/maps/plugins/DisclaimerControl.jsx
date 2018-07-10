@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import registerControlPosition from './RegisterControl'
+import registerControlPosition from '../utils/RegisterControl'
 import './_mapboxglBottomCenter.css'
 
 class DisclaimerControl {

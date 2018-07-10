@@ -5,11 +5,11 @@ export default dynamic({
   ssr: false,
   modules: () => ({
     DynamicMap: import('./DynamicMap'),
-    Config: import('../Config')
+    Config: import('../Config'),
   }),
   render: (props, { DynamicMap, Config }) => {
-    const { accessToken, mapStyle } = Config
-    const mapProps = { accessToken, mapStyle, ...props }
+    const { accessToken, mapStyle, layers } = Config
+    const mapProps = { accessToken, mapStyle, layers, ...props }
    return <DynamicMap { ...mapProps } />
   },
 })
