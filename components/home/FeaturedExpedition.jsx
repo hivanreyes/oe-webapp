@@ -79,7 +79,7 @@ FeaturedExpedition.propTypes = {
       const msg = 'fetchAction function is required if no data is provided.'
       return new Error(msg)
     }
-    return true
+    return null
   },
 }
 

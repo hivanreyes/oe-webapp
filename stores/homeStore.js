@@ -18,7 +18,6 @@ class HomeStore {
 
   @action async fetchFeaturedExpedition() {
     const response = await Api.home.getFeaturedExpedition()
-    console.log(response)
     return response.data
   }
 
