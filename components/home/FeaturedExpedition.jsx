@@ -11,7 +11,7 @@ class FeaturedExpedition extends Component {
 
     if (banner && name && firstLocation && duration && description) {
       this.state = {
-        data: { banner, name, firstLocation, duration, description }
+        data: { banner, name, firstLocation, duration, description },
       }
     } else {
       this.state = {
@@ -21,7 +21,7 @@ class FeaturedExpedition extends Component {
           firstLocation: '',
           duration: '',
           description: '',
-        }
+        },
       }
     }
   }
@@ -52,7 +52,7 @@ class FeaturedExpedition extends Component {
               <div>
                 <span className={style.subtitle}>
                   {description.replace(/<(?:.|\n)*?>/gm, '')}
-                  </span>
+                </span>
               </div>
             </TruncateMarkup>
             <br />
@@ -70,13 +70,17 @@ FeaturedExpedition.propTypes = {
   firstLocation: PropTypes.string,
   duration: PropTypes.string,
   description: PropTypes.string,
-  fetchAction: function(props, propName) {
+  fetchAction: (props, propName) => {
     const { banner, name, firstLocation, duration, description } = props
-    if (!(banner && name && firstLocation && duration && description) &&
-      (props[propName] === undefined || typeof props[propName] !== 'function')) {
-      return new Error('fetchAction function is required if no data is provided.')
+    if (
+      !(banner && name && firstLocation && duration && description) &&
+      (props[propName] === undefined || typeof props[propName] !== 'function')
+    ) {
+      const msg = 'fetchAction function is required if no data is provided.'
+      return new Error(msg)
     }
-  }
+    return true
+  },
 }
 
 export default FeaturedExpedition
