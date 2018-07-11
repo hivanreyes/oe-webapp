@@ -7,20 +7,30 @@ import Button from '../shared/Button'
 class FeaturedExpedition extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      data: {
-        banner: '',
-        name: '',
-        firstLocation: '',
-        duration: '',
-        description: '',
+    const { banner, name, firstLocation, duration, description } = props
+
+    if (banner && name && firstLocation && duration && description) {
+      this.state = {
+        data: { banner, name, firstLocation, duration, description }
+      }
+    } else {
+      this.state = {
+        data: {
+          banner: '',
+          name: '',
+          firstLocation: '',
+          duration: '',
+          description: '',
+        }
       }
     }
   }
 
   async componentDidMount() {
-    const data = await this.props.fetchAction()
-    this.setState({ data: data[0] })
+    if (this.props.fetchAction) {
+      const data = await this.props.fetchAction()
+      this.setState({ data: data[0] })
+    }
   }
 
   render() {
@@ -55,7 +65,18 @@ class FeaturedExpedition extends Component {
 }
 
 FeaturedExpedition.propTypes = {
-  fetchAction: PropTypes.func.isRequired
+  banner: PropTypes.string,
+  name: PropTypes.string,
+  firstLocation: PropTypes.string,
+  duration: PropTypes.string,
+  description: PropTypes.string,
+  fetchAction: function(props, propName) {
+    const { banner, name, firstLocation, duration, description } = props
+    if (!(banner && name && firstLocation && duration && description) &&
+      (props[propName] === undefined || typeof props[propName] !== 'function')) {
+      return new Error('fetchAction function is required if no data is provided.')
+    }
+  }
 }
 
 export default FeaturedExpedition
