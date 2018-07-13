@@ -9,11 +9,9 @@ let isServer = typeof window === 'undefined'
 
 class HomeStore {
 
-  @observable geoJson = []
-
   @action async fetchJson() {
     const json = await Api.home.getGeoJson();
-    this.setJsons(json)
+    return json.data
   }
 
   @action async fetchFeaturedExpedition() {
