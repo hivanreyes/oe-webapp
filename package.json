@@ -71,6 +71,7 @@
     "@natgeo/web-components-react-where-to-watch": "^1.0.2-0",
     "@natgeo/web-components-vanilla-freewheel-ad-manager": "^1.0.3-0",
     "@natgeo/web-components-vanilla-utils": "^1.0.3-0",
+    "@turf/turf": "^5.1.6",
     "@zeit/next-sass": "^0.2.0",
     "axios": "^0.16.1",
     "babel-polyfill": "^6.26.0",
@@ -83,6 +84,7 @@
     "install": "^0.11.0",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.10",
+    "mapbox-gl": "^0.46.0",
     "mobx": "^2.7.0",
     "mobx-react": "^4.0.4",
     "next": "^5.1.0",
@@ -105,6 +107,8 @@
     "set-cookie": "^0.0.4",
     "slick-carousel": "^1.8.1",
     "stickyfilljs": "2.0.3",
+    "style-loader": "^0.21.0",
+    "supercluster": "2.3.0",
     "url-loader": "^1.0.1"
   },
   "devDependencies": {

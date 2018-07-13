@@ -1,0 +1,6 @@
+{
+  "mapboxgl": {
+    "accessToken": "mapbox-gl-access-token",
+    "style": "user/style-id"
+  }
+}

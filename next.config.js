@@ -8,7 +8,7 @@ module.exports = withSass({
 
   },
 
-  webpack (config) {
+  webpack(config) {
     config.module.rules.push({
       test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
       use: {
@@ -30,6 +30,11 @@ module.exports = withSass({
           !/node_modules\/@natgeo\/modules-global-nav/.test(modulePath)
       },
       options: Object.assign({}, this.babelOptions),
+    })
+
+    config.module.rules.push({
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
     })
 
     config.node = {
