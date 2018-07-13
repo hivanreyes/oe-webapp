@@ -23,9 +23,13 @@ const getButtonClassNames = ({ buttonType, size }) =>
   })
 
 const Button = props => {
-  const { label } = props
+  const { label, onClick } = props
   const buttonClassNames = getButtonClassNames(props)
-  return <button className={buttonClassNames}>{label}</button>
+  return (
+    <button onClick={onClick} className={buttonClassNames}>
+      {label}
+    </button>
+  )
 }
 
 Button.defaultProps = {
@@ -37,6 +41,7 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   buttonType: PropTypes.oneOf([TYPE.PRIMARY, TYPE.SECONDARY]),
   size: PropTypes.oneOf([SIZE.SMALL, SIZE.BIG]),
+  onClick: PropTypes.func,
 }
 
 export default Button

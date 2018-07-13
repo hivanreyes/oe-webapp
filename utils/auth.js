@@ -1,20 +1,18 @@
 import redirect from './redirect'
 import { getCookie, removeCookie } from './session'
 
-const getCookieSessionName = () => {
-  return 'mmdbsessionid'
-}
+const getCookieSessionName = dev => `mmdbsessionid${dev ? '-stg' : ''}`
 
-/*
 export const signOut = (ctx = {}) => {
   if (process.browser) {
-    removeCookie(getCookieSessionName())
+    removeCookie(getCookieSessionName(process.env.NODE_ENV !== 'production'))
     redirect('/', ctx)
   }
 }
 
-export const getAuthToken = ctx => {
-  return getCookie(getCookieSessionName(), ctx.req)
+export const getAuthToken = (ctx = { req: null }) => {
+  const cookieName = getCookieSessionName(process.env.NODE_ENV !== 'production')
+  return getCookie(cookieName, ctx.req)
 }
 
 export const isAuthenticated = ctx => !!getAuthToken(ctx)
@@ -36,4 +34,3 @@ export const redirectIfNotAuthenticated = ctx => {
   }
   return false
 }
-*/
