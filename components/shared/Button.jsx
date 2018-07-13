@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import style from './styles/button.scss'
 
-const TYPE = {
+export const TYPE = {
   PRIMARY: 'PRIMARY',
   SECONDARY: 'SECONDARY',
 }
 
-const SIZE = {
+export const SIZE = {
   BIG: 'BIG',
   SMALL: 'SMALL',
 }
@@ -35,8 +35,8 @@ Button.defaultProps = {
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
-  buttonType: PropTypes.string,
-  size: PropTypes.string,
+  buttonType: PropTypes.oneOf([TYPE.PRIMARY, TYPE.SECONDARY]),
+  size: PropTypes.oneOf([SIZE.SMALL, SIZE.BIG]),
 }
 
 export default Button

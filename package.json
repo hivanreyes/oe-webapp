@@ -20,6 +20,14 @@
     "clean:modules": "rm -rf node_modules/",
     "clean": "yarn run clean:modules && rm -rf static/css"
   },
+  "jest": {
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
@@ -66,10 +74,11 @@
     "@turf/turf": "^5.1.6",
     "@zeit/next-sass": "^0.2.0",
     "axios": "^0.16.1",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-stage-0": "^6.24.1",
     "classnames": "^2.2.6",
     "css-loader": "^0.28.11",
-    "dotenv": "^6.0.0",
+    "enzyme-to-json": "^3.3.4",
     "express": "^4.16.3",
     "file-loader": "^1.1.11",
     "install": "^0.11.0",
@@ -103,6 +112,7 @@
     "url-loader": "^1.0.1"
   },
   "devDependencies": {
+    "@types/jest": "^23.1.5",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -119,11 +129,14 @@
     "eslint-plugin-flowtype": "^2.49.3",
     "eslint-plugin-flowtype-errors": "^3.6.0",
     "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jest": "^21.17.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.1",
     "eslint-plugin-react": "^7.10.0",
     "flow-bin": "^0.75.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
+    "jest-css-modules": "^1.1.0",
     "prettier": "^1.13.6",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.3.2"
