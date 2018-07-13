@@ -10,7 +10,7 @@ module.exports = withSass({
 
   webpack(config) {
     config.module.rules.push({
-      test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
+      test: /\.(png|svg|eot|otf|woff2|ttf|woff)$/,
       use: {
         loader: 'url-loader',
         options: {

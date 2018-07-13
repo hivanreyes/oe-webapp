@@ -11,6 +11,7 @@ var SETTINGS = {
   slidesToShow: 3,
   lazyLoad: true,
   rows: 1,
+  useCss: false,
   responsive: [
     {
       breakpoint: 1200,
@@ -67,6 +68,10 @@ class CarouselWrapper extends Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.updateVisibleHelp);
+    const wh = window.innerWidth 
+    if(wh <= 1200){
+      this.setState({ visibleHelp: true })
+    }
   }
 
   componentWillUnmount() {

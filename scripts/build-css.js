@@ -16,7 +16,6 @@ const source = [
   'node_modules/@natgeo/web-components-react-kicker/lib/styles.css',
   'node_modules/@natgeo/web-components-react-promo-list/lib/styles.css',
   'node_modules/slick-carousel/slick/slick.css',
-  'node_modules/slick-carousel/slick/slick-theme.css',
 ]
 
 const outputFilename = './static/css/styles.min.css'
