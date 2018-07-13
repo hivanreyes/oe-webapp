@@ -18,13 +18,11 @@ class Home extends Component {
 
   componentDidMount() {
     autorun(() => {
-      console.log('session updated', this.sessionStore.sessionId)
       this.setState({ isAuthenticated: !!this.sessionStore.sessionId })
     })
   }
 
   render() {
-    // const { isAuthenticated } = this.props
     return (
       <Provider homeStore={this.homeStore} sessionStore={this.sessionStore}>
         <Layout>
