@@ -1,9 +1,6 @@
 const express = require('express')
 const next = require('next')
 const mobxReact = require('mobx-react')
-const dotenv = require('dotenv')
-
-dotenv.config()
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
