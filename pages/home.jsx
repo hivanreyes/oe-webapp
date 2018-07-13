@@ -28,13 +28,6 @@ class Home extends Component {
         <Layout>
           <Header />
           <HomeContainer />
-          <DynamicFollowButton
-            subdomain={'rovmeteoritehunt'}
-            isAuthenticated={!!this.state.isAuthenticated}
-            isFollower={false}
-            follow={Api.expedition.follow}
-            unfollow={Api.expedition.unfollow}
-          />
         </Layout>
       </Provider>
     )
