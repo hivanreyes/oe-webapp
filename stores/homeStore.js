@@ -8,9 +8,21 @@ let store = null
 let isServer = typeof window === 'undefined'
 
 class HomeStore {
-  async fetchJson() {
-    const { data } = await Api.home.getGeoJson()
-    return data
+
+  @action async fetchJson() {
+    const json = await Api.home.getGeoJson();
+    return json.data
+  }
+
+  @action async fetchFeaturedExpedition() {
+    const response = await Api.home.getFeaturedExpedition()
+    return response.data
+  }
+
+  @action setJsons = newGeoJson => {
+    const { data } = newGeoJson
+    this.geoJson.splice(0)
+    this.geoJson.push(data)
   }
 }
 
