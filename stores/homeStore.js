@@ -16,6 +16,7 @@ class HomeStore {
   @action async fetchFeaturedExpedition() {
     const response = await Api.home.getFeaturedExpedition()
     return response.data
+  }
 
   @action async fetchJson() {
     const { data } = await Api.home.getGeoJson()
