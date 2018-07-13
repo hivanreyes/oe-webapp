@@ -5,7 +5,7 @@ import { FilterTags } from '../shared'
 import { CarouselWrapper } from '../shared'
 import style from '../../styles/filterPopular.scss'
 
-const FilterCards = ({ expeditions, actions, showAt }) => {
+const FilterCards = ({ expeditions, actions, showAt, title }) => {
   let sliders = null
 
   if (expeditions.length) {
@@ -22,7 +22,7 @@ const FilterCards = ({ expeditions, actions, showAt }) => {
     <div className={style.sliderExpeditions}>
       <div>
         <FilterTags
-          title={'Popular Expeditions'}
+          title={title}
           filterByTag={actions}
         />
       </div>

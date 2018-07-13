@@ -92,9 +92,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@fortawesome/fontawesome-free-webfonts@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-free-webfonts/-/fontawesome-free-webfonts-1.0.9.tgz#72f2c10453422aba0d338fa6a9cb761b50ba24d5"
+"@fortawesome/fontawesome-free@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-5.1.0.tgz#f35f5ba91366b7a58b0b6a4f22ff0907fe002219"
 
 "@mapbox/geojson-area@0.2.2":
   version "0.2.2"

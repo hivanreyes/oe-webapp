@@ -48,7 +48,7 @@ class Carousel extends Component {
         <Slider {...settings}>
           <div className={style.container}>
             <img
-              src="https://openexplorer.nationalgeographic.com/assets/images/heropictures/NationalGeographic_1767876_2048.jpg"
+              src="/static/img/start_expedition.jpg"
               className={style.image}
               alt="Exploration for everyone"
             />
@@ -59,7 +59,7 @@ class Carousel extends Component {
           </div>
           <div className={style.container}>
             <img
-              src="https://openexplorer.nationalgeographic.com/assets/images/heropictures/underwater-meteorites.jpg"
+              src="/static/img/underwater-meteorites.jpg"
               className={style.image}
               alt="Hunting for underwater meteorites"
             />
@@ -70,7 +70,7 @@ class Carousel extends Component {
           </div>
           <div className={style.container}>
             <img
-              src="https://openexplorer.nationalgeographic.com/assets/images/heropictures/Carousel_option_2_preview.jpeg"
+              src="/static/img/angola_rivers.jpeg"
               className={style.image}
               alt="Exploring the most remote rivers in Angola"
             />

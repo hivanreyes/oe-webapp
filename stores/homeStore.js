@@ -10,28 +10,22 @@ let isServer = typeof window === 'undefined'
 class HomeStore {
   constructor() {
     this.popular = []
+    this.recent = []
   }
 
   @action async fetchFeaturedExpedition() {
     const response = await Api.home.getFeaturedExpedition()
     return response.data
 
-  constructor() {
-    this.popular = []
-    this.recent = []
-  }
-
   @action async fetchJson() {
-    const json = await Api.home.getGeoJson();
-    this.setJsons(json)
+    const { data } = await Api.home.getGeoJson()
+    return data
   }
 
   @action fetchPopular = async () => {
     const popularExp = await Api.home.getPopularExpeditions();
     this.popular = popularExp.data
     return popularExp.data
-  }
-
   }
 
   @computed get popularAll() {

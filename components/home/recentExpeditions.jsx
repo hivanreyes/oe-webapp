@@ -10,9 +10,9 @@ class RecentExpeditions extends Component {
     this.getByTag = this.getByTag.bind(this)
   }
 
-  componentWillMount = async () =>{
-    const { store } = this.props
-    const expeditions = await store.fetchRecent()
+  componentDidMount = async () =>{
+    const { actionFetch } = this.props
+    const expeditions = await actionFetch()
     this.setState({ recent: expeditions })
   }
 
@@ -44,13 +44,13 @@ class RecentExpeditions extends Component {
 
   render() {
     const { recent } = this.state
-    console.log(recent)
 
     return(
       <FilterCards
         expeditions={recent}
         actions={this.getByTag}
         showAt={1200}
+        title={'Recent Expeditions'}
       />
     )
   }

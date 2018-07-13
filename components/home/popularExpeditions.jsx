@@ -10,9 +10,9 @@ class FilterPopular extends Component {
     this.getByTag = this.getByTag.bind(this)
   }
 
-  componentWillMount = async () =>{
-    const { store } = this.props
-    const expeditions = await store.fetchPopular()
+  componentDidMount = async () =>{
+    const { actionFetch } = this.props
+    const expeditions = await actionFetch()
     this.setState({ popular: expeditions })
   }
 
@@ -50,6 +50,7 @@ class FilterPopular extends Component {
         expeditions={popular}
         actions={this.getByTag}
         showAt={1200}
+        title={'Popular Expeditions'}
       />
     )
   }
