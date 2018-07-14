@@ -25,7 +25,6 @@ class HomeStore {
 
   @action fetcheFilter = async (type, tag, limit) => {
     if(this.cachedHome.hasExpeditions(type, tag)) {
-      console.log('asdasd')
       return this.cachedHome.getExpeditions(type, tag)
     } else {
       const popularExp = await Api.home.getExpeditionsByTypeAndTag(type, tag, limit);

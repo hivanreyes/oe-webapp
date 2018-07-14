@@ -6,8 +6,10 @@ import style from './styles/expeditionCard.scss'
 
 const ExpeditionCard = ({ data }) => {
   let postLabel = 'post'
-  if (data.postCount !== 1) postLabel = 'posts'
-  const firstLocation = `${data.firstLocation} ${data.duration}`
+  //TODO remove this hardcoded data add those ones on BE
+  const count = Math.floor(Math.random() * 10) + 1
+  if (count !== 1) postLabel = 'posts'
+  const firstLocation = 'Oaxaca de 1 de enero a 2 de febrero'
   return (
     <div className={style.containerExpCard}>
       <img className={style.headerImg} src={data.banner} alt={data.name} />
@@ -32,7 +34,7 @@ const ExpeditionCard = ({ data }) => {
           </TruncateMarkup>
         </div>
         <div className={style.post}>
-          <span className={style.number}>{data.postCount}</span>
+          <span className={style.number}>{count}</span>
           <span className={style.postText}>{postLabel}</span>
         </div>
         <div className={style.buttons}>
@@ -48,9 +50,6 @@ ExpeditionCard.propTypes = {
     name: PropTypes.string.isRequired,
     banner: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    postCount: PropTypes.number.isRequired,
-    firstLocation: PropTypes.string.isRequired,
-    duration: PropTypes.string.isRequired,
   }),
 }
 
