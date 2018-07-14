@@ -12,33 +12,13 @@ class FilterPopular extends Component {
 
   componentDidMount = async () =>{
     const { actionFetch } = this.props
-    const expeditions = await actionFetch()
+    const expeditions = await actionFetch('popular', 'all', '20')
     this.setState({ popular: expeditions })
   }
 
   getByTag = async (tag) => {
-    const { store } = this.props
-    let newPopular = []
-    switch(tag) {
-      case 'all':
-        newPopular = await store.popularAll
-        break
-      case 'air':
-        newPopular = await store.popularAir
-        break
-      case 'land':
-        newPopular = await store.popularLand
-        break
-      case 'sea':
-        newPopular = await store.popularSea
-        break
-      case 'urban':
-        newPopular = await store.popularUrban
-        break
-      case 'backyard':
-        newPopular = await store.popularBackyard
-        break
-    }
+    const { actionFetch } = this.props
+    let newPopular = await actionFetch('popular', tag, '20')
     this.setState({ popular: newPopular })
   }
 

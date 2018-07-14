@@ -20,8 +20,8 @@ class HomeContainer extends Component {
       <Container className="image-container">
         <Carousel json={this.geoJson} />
         <ExpeditionsMap actionFetch={homeStore.fetchJson} />
-        <PopularExpeditions actionFetch={homeStore.fetchPopular} />
-        <RecentExpeditions actionFetch={homeStore.fetchRecent} />
+        <PopularExpeditions actionFetch={homeStore.fetcheFilter} />
+        <RecentExpeditions actionFetch={homeStore.fetcheFilter} />
         <FeaturedExpedition
           fetchAction={this.props.homeStore.fetchFeaturedExpedition}
         />

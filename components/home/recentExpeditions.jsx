@@ -12,33 +12,13 @@ class RecentExpeditions extends Component {
 
   componentDidMount = async () =>{
     const { actionFetch } = this.props
-    const expeditions = await actionFetch()
+    const expeditions = await actionFetch('created', 'all', '20')
     this.setState({ recent: expeditions })
   }
 
   getByTag = async (tag) => {
-    const { store } = this.props
-    let newRecent = []
-    switch(tag) {
-      case 'all':
-        newRecent = await store.recentAll
-        break
-      case 'air':
-        newRecent = await store.recentAir
-        break
-      case 'land':
-        newRecent = await store.recentLand
-        break
-      case 'sea':
-        newRecent = await store.recentSea
-        break
-      case 'urban':
-        newRecent = await store.recentUrban
-        break
-      case 'backyard':
-        newRecent = await store.recentBackyard
-        break
-    }
+    const { actionFetch } = this.props
+    let newRecent = actionFetch('created', tag, '20')
     this.setState({ recent: newRecent })
   }
 

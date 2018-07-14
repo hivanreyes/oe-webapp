@@ -23,76 +23,10 @@ class HomeStore {
     return data
   }
 
-  @action fetchPopular = async () => {
-    const popularExp = await Api.home.getPopularExpeditions();
-    this.popular = popularExp.data
-    return popularExp.data
+  @action fetcheFilter = async (type, tag, limit) => {
+    const popularExp = await Api.home.getExpeditionsByTypeAndTag(type, tag, limit);
+    return popularExp.data.expeditions
   }
-
-  @computed get popularAll() {
-    return this.popular;
-  }
-
-  @computed get popularAir() {
-    return this.filterbyTag('air')
-  }
-
-  @computed get popularLand() {
-    return this.filterbyTag('land')
-  }
-
-  @computed get popularSea() {
-    return this.filterbyTag('sea')
-  }
-
-  @computed get popularUrban() {
-    return this.filterbyTag('urban')
-  }
-
-  @computed get popularBackyard() {
-    return this.filterbyTag('backyard')
-  }
-
-  @action fetchRecent = async () => {
-    const recentExp = await Api.home.getLatestExpeditions();
-    this.recent = recentExp.data
-    return recentExp.data
-  }
-
-  @computed get recentAll() {
-    return this.popular;
-  }
-
-  @computed get recentAir() {
-    return this.filterbyTag('air', 'recent')
-  }
-
-  @computed get recentLand() {
-    return this.filterbyTag('land', 'recent')
-  }
-
-  @computed get recentSea() {
-    return this.filterbyTag('sea', 'recent')
-  }
-
-  @computed get recentUrban() {
-    return this.filterbyTag('urban', 'recent')
-  }
-
-  @computed get recentBackyard() {
-    return this.filterbyTag('backyard', 'recent')
-  }
-
-  filterbyTag(tag, type= 'popular') {
-    if(type === 'popular') {
-      return this.popular.filter(exp => exp.tags.includes(tag))
-    }
-
-    if(type === 'recent') {
-      return this.recent.filter(exp => exp.tags.includes(tag))
-    }
-  }
-
 }
 
 function initHomeStore() {

@@ -14,8 +14,14 @@ function api() {
 
 export default {
   home: {
-    getPopularExpeditions: () =>
-      api().get('views/expeditions/popular/20'),
+    getExpeditionsByTypeAndTag: (type, tag, limit) =>
+      api().get('expeditions/filter', {
+        params: {
+          type,
+          tag,
+          limit,
+        },
+      }),
     getLatestExpeditions: () =>
       api().get('views/expeditions/recent/20'),
     getFeaturedExpedition: () =>
