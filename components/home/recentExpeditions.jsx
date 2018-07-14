@@ -18,7 +18,7 @@ class RecentExpeditions extends Component {
 
   getByTag = async (tag) => {
     const { actionFetch } = this.props
-    let newRecent = actionFetch('created', tag, '20')
+    let newRecent = await actionFetch('created', tag, '20')
     this.setState({ recent: newRecent })
   }
 
