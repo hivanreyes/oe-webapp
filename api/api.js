@@ -12,6 +12,8 @@ function api() {
   })
 }
 
+const withCredentials = { withCredentials: true }
+
 export default {
   home: {
     getPopularExpeditions: () =>
@@ -19,15 +21,18 @@ export default {
     getLatestExpeditions: () =>
       api().get('views/expeditions/recent/20'),
     getFeaturedExpedition: () =>
-      api().get('/views/expeditions/featured'),
+      api().get('/views/expeditions/featured/random', withCredentials),
     getObservations: () =>
       api().get('/views/observations/recent/20'),
     getGeoJson: () =>
       api().get('/views/expeditions/geojson'),
   },
   expedition: {
-    checkFollow: subdomain => api().get(`/expedition/${subdomain}/checkfollow`, { withCredentials: true }),
-    follow: subdomain => api().post(`/expedition/${subdomain}/follow`, { withCredentials: true }),
-    unfollow: subdomain => api().delete(`/expedition/${subdomain}/unfollow`, { withCredentials: true }),
+    checkFollow: subdomain =>
+      api().get(`/expedition/${subdomain}/checkfollow`, withCredentials),
+    follow: subdomain =>
+      api().post(`/expedition/${subdomain}/follow`, null, withCredentials),
+    unfollow: subdomain =>
+      api().delete(`/expedition/${subdomain}/follow`, withCredentials),
   },
 }

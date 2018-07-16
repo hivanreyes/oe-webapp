@@ -3,11 +3,7 @@ import dynamic from 'next/dynamic'
 import Button from './Button'
 import FollowButton from './FollowButton'
 
-const FollowButtonPlaceHolder = () => (
-  <Button
-    label={'Follow'}
-  />
-)
+const FollowButtonPlaceHolder = () => <Button label={'Follow'} />
 
 const DynamicFollowButton = dynamic({
   ssr: false,

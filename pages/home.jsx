@@ -4,9 +4,7 @@ import HomeContainer from '../components/home/homeContainer'
 import Header from '../components/shared/Header'
 import { autorun } from 'mobx'
 import { Provider } from 'mobx-react'
-import DynamicFollowButton from '../components/shared/DynamicFollowButton'
 import { initHomeStore, initSessionStore } from '../stores'
-import Api from '../api/api'
 
 class Home extends Component {
   constructor(props) {

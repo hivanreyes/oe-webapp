@@ -28,7 +28,6 @@ class SessionStore {
           if (self.sessionId !== JSONResponse.session_id) {
             self.user = JSONResponse.user
             self.sessionId = JSONResponse.session_id
-            console.log(self.sessionId)
           }
         } else if (
           this.responseURL.includes(MMDBLogOutURL) &&

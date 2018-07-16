@@ -2,26 +2,24 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import TruncateMarkup from 'react-truncate-markup'
 import style from './featuredExpedition.scss'
-import Button from '../shared/Button'
+import FollowButton from '../shared/DynamicFollowButton'
 
 class FeaturedExpedition extends Component {
   constructor(props) {
     super(props)
-    const { banner, name, firstLocation, duration, description } = props
+    const { banner, name, firstLocation, duration, description, isFollower } = props
 
     if (banner && name && firstLocation && duration && description) {
-      this.state = {
-        data: { banner, name, firstLocation, duration, description },
-      }
+      this.state = { banner, name, firstLocation, duration, description, isFollower }
     } else {
       this.state = {
-        data: {
-          banner: '',
-          name: '',
-          firstLocation: '',
-          duration: '',
-          description: '',
-        },
+        banner: '',
+        name: '',
+        subdomain: '',
+        firstLocation: '',
+        duration: '',
+        description: '',
+        isFollower: false,
       }
     }
   }
@@ -29,7 +27,7 @@ class FeaturedExpedition extends Component {
   async componentDidMount() {
     if (this.props.fetchAction) {
       const data = await this.props.fetchAction()
-      this.setState({ data: data[0] })
+      this.setState(data)
     }
   }
 
@@ -37,16 +35,21 @@ class FeaturedExpedition extends Component {
     const {
       banner,
       name,
+      subdomain,
       firstLocation,
       duration,
       description,
-    } = this.state.data
+      isFollower,
+    } = this.state
+    const { isAuthenticated, follow, unfollow } = this.props
     return (
       <div className={style.featuredExpedition}>
         <div className={style.container}>
           <img src={banner} className={style.image} alt={name} />
           <div className={style.left}>
-            <div className={style.metadata}>{`${firstLocation}, ${duration}`}</div>
+            <div className={style.metadata}>
+              {`${firstLocation}, ${duration}`}
+            </div>
             <div className={style.title}>{name}</div>
             <TruncateMarkup lines={5}>
               <div>
@@ -56,7 +59,13 @@ class FeaturedExpedition extends Component {
               </div>
             </TruncateMarkup>
             <br />
-            <Button label="Follow" />
+            <FollowButton
+              follow={follow}
+              unfollow={unfollow}
+              isAuthenticated={isAuthenticated}
+              isFollower={isFollower}
+              subdomain={subdomain}
+            />
           </div>
         </div>
       </div>
@@ -67,9 +76,14 @@ class FeaturedExpedition extends Component {
 FeaturedExpedition.propTypes = {
   banner: PropTypes.string,
   name: PropTypes.string,
+  subdomain: PropTypes.string,
   firstLocation: PropTypes.string,
   duration: PropTypes.string,
   description: PropTypes.string,
+  isFollower: PropTypes.bool,
+  isAuthenticated: PropTypes.bool.isRequired,
+  follow: PropTypes.func.isRequired,
+  unfollow: PropTypes.func.isRequired,
   fetchAction: (props, propName) => {
     const { banner, name, firstLocation, duration, description } = props
     if (
@@ -81,6 +95,10 @@ FeaturedExpedition.propTypes = {
     }
     return null
   },
+}
+
+FeaturedExpedition.defaultProps = {
+  isFollower: false,
 }
 
 export default FeaturedExpedition

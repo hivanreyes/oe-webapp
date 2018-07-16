@@ -9,30 +9,30 @@ class FollowButton extends Component {
     this.state = { isFollower: props.isFollower }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isFollower !== this.props.isFollower) {
+      this.setState({ isFollower: nextProps.isFollower })
+    }
+  }
+
   render() {
     const { subdomain, follow, unfollow, isAuthenticated } = this.props
     const { isFollower } = this.state
     return (
       <Button
         /* eslint-disable no-console */
-        onClick={() => {
+        onClick={async () => {
           if (isAuthenticated) {
             if (isFollower) {
-              unfollow(subdomain)
-                .then(response => {
-                  if (response.success) {
-                    this.setState({ isFollower: true })
-                  }
-                })
-                .catch(console.error)
+              const res = await unfollow(subdomain)
+              if (res.status === 200) {
+                this.setState({ isFollower: false })
+              }
             } else {
-              follow(subdomain)
-                .then(response => {
-                  if (response.success) {
-                    this.setState({ isFollower: false })
-                  }
-                })
-                .catch(console.error)
+              const res = await follow(subdomain)
+              if (res.status === 200) {
+                this.setState({ isFollower: true })
+              }
             }
           } else {
             // TODO: redirect to mmdb login.
