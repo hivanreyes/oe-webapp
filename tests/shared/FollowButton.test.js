@@ -7,8 +7,8 @@ const mockData = (isFollower = false, isAuthenticated = true) => ({
   isAuthenticated,
   isFollower,
   subdomain: 'subdomain',
-  follow: () => Promise.resolve({ success: true }),
-  unfollow: () => Promise.resolve({ success: true }),
+  follow: () => Promise.resolve({ status: 200 }),
+  unfollow: () => Promise.resolve({ status: 200 }),
 })
 
 describe('<FollowButton />', () => {
@@ -28,7 +28,7 @@ describe('<FollowButton />', () => {
     const btn = shallow(<FollowButton {...mockData(true)} />)
     expect(btn.find('Button').props().label).toBe('Following')
   })
-  it('should change label `Follow` for `Following` if clicked and is Authenticated', () => {
+  it('should change label `Follow` to `Following` if clicked and is Authenticated', () => {
     const btn = shallow(<FollowButton {...mockData()} />)
     btn.find('Button').prop('onClick')()
     Promise.resolve().then(() => {
@@ -39,7 +39,7 @@ describe('<FollowButton />', () => {
       expect(label).toBe('Following')
     })
   })
-  it('should change label `Following` for `Follow` if clicked and is Authenticated', () => {
+  it('should change label `Following` to `Follow` if clicked and is Authenticated', () => {
     const btn = shallow(<FollowButton {...mockData(true)} />)
     btn.prop('onClick')()
     Promise.resolve().then(() => {
@@ -53,9 +53,14 @@ describe('<FollowButton />', () => {
   it('should call `redirect` if user is not authenticated', () => {
     const spy = jest.spyOn(redirect, 'default')
     const btn = shallow(<FollowButton {...mockData(false, false)} />)
-    expect(() => {
-      btn.prop('onClick')()
-    }).toThrowError()
+    btn
+      .prop('onClick')()
+      .then(() => {
+        throw new Error('Should throw an error.')
+      })
+      .catch(err => {
+        expect(err).toBeInstanceOf(Error)
+      })
     expect(spy).toHaveBeenCalled()
     spy.mockRestore()
   })

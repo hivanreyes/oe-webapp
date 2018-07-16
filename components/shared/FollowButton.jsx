@@ -9,12 +9,6 @@ class FollowButton extends Component {
     this.state = { isFollower: props.isFollower }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.isFollower !== this.props.isFollower) {
-      this.setState({ isFollower: nextProps.isFollower })
-    }
-  }
-
   render() {
     const { subdomain, follow, unfollow, isAuthenticated } = this.props
     const { isFollower } = this.state
