@@ -21,7 +21,7 @@ class FollowButton extends Component {
               unfollow(subdomain)
                 .then(response => {
                   if (response.success) {
-                    this.setState({ isFollower: true })
+                    this.setState({ isFollower: false })
                   }
                 })
                 .catch(console.error)
@@ -29,7 +29,7 @@ class FollowButton extends Component {
               follow(subdomain)
                 .then(response => {
                   if (response.success) {
-                    this.setState({ isFollower: false })
+                    this.setState({ isFollower: true })
                   }
                 })
                 .catch(console.error)
